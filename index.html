@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Youtube Mixer</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="swfobject/swfobject.js"></script>   
+    <script type="text/javascript">
+      function buscar_en_youtube(texto){
+        var texto = escape(texto);
+        $('#listita').text('');  
+        $.ajax({
+            type: 'GET',
+            url: 'https://gdata.youtube.com/feeds/api/videos?q=' + texto + '&alt=json',
+            success: function (root){
+        
+            var feed = root.feed;
+            var entries = feed.entry || [];
+            console.log(root.feed.entry);
+            for (var i = 0; i < entries.length; ++i){
+                var entry = entries[i];
+                var title = (entry.title.type == 'html') ? entry.title.$t : entry.title.$t;
+                $('#listita').append(
+                '<li><img src="' 
+                + entry.media$group.media$thumbnail[1].url 
+                + '"/><a href="' 
+                + entry.link[0].href  
+                + '">' + title + '</a></li>');
+        }
+
+
+
+        },
+        });
+      }
+
+    function cargar_video(video_id, player){
+        var params = { allowScriptAccess: "always"};
+        var atts = {id:"myytplayer" + player}
+        swfobject.embedSWF("http://www.youtube.com/v/" + video_id + "?enablejsapi=1&playerapiid=ytplayer" + player +"&version=3",
+            "ytapiplayer" + player, "425", "356", "8", null, null, params, atts);
+
+            
+    }
+
+function onYouTubePlayerReady(playerId){
+  console.log(playerId);
+  if (playerId == "ytplayer1"){
+    ytplayer1 = document.getElementById("myytplayer1");
+  } else if(playerId == 'ytplayer2'){
+    ytplayer2 =document.getElementById('myytplayer2');
+  }
+}
+
+    function buscar(){
+      var text = $('#search').val();
+      buscar_en_youtube(text);
+      cargar_video('G-8cHazsuog', 1);
+      cargar_video('M00FtbeO-gg', 2);
+      console.log(this);
+      return false;
+    }
+
+    function slider_change()
+    {
+        var value = $('#slider').val();
+        console.log(value);
+        ytplayer1.setVolume(100 - value);
+        ytplayer2.setVolume(value);
+    }
+    </script>
+  </head>
+  <body>
+     <div id="ytapiplayer1">
+           You need Flash player 8+ and JavaScript enabled to view this video.
+    </div>
+     <div id="ytapiplayer2">
+           You need Flash player 8+ and JavaScript enabled to view this video.
+         </div>
+    <br/>
+      <input id="slider" type="range" onchange="slider_change()"/>
+    <marquee>En desarrollo</marquee>
+    <input id='search' type='text'/>
+    <input type='button' value='buscar' onclick="buscar();"/>
+    <ul id='listita'>
+    </ul>
+         
+  </body>
+</html>

@@ -14,25 +14,34 @@
         
             var feed = root.feed;
             var entries = feed.entry || [];
+
             console.log(root.feed.entry);
             for (var i = 0; i < entries.length; ++i){
                 var entry = entries[i];
                 var title = (entry.title.type == 'html') ? entry.title.$t : entry.title.$t;
+                var id = obtener_id(entry.id.$t);
                 $('#listita').append(
-                '<li><img src="' 
-                + entry.media$group.media$thumbnail[1].url 
-                + '"/><a href="' 
-                + entry.link[0].href  
-                + '">' + title + '</a></li>');
+                '<li>'
+                  +'<img src="' + entry.media$group.media$thumbnail[1].url + '"/>'
+                  +'<input type="button" value="cargar en A" onclick="ytplayer1.loadVideoById(\''+ id +'\');">'
+                  +'<input type="button" value="cargar en B" onclick="ytplayer2.loadVideoById(\''+ id +'\');">'
+                  +'<a href="'+ entry.link[0].href + '">' + title + '</a>'
+                +'</li>'
+                
+                );
         }
-
-
-
         },
         });
       }
 
+    function obtener_id(url_video){
+        var elementos = url_video.split('/');
+        var id = elementos[elementos.length - 1];
+        console.log(id);
+        return id;
+    }
     function cargar_video(video_id, player){
+        console.log(video_id);
         var params = { allowScriptAccess: "always"};
         var atts = {id:"myytplayer" + player}
         swfobject.embedSWF("http://www.youtube.com/v/" + video_id + "?enablejsapi=1&playerapiid=ytplayer" + player +"&version=3",
@@ -50,12 +59,14 @@ function onYouTubePlayerReady(playerId){
   }
 }
 
+    function iniciar_players()
+    {
+      cargar_video('G-8cHazsuog', 1);
+      cargar_video('3lGXgiWYexk', 2);
+    }
     function buscar(){
       var text = $('#search').val();
       buscar_en_youtube(text);
-      cargar_video('G-8cHazsuog', 1);
-      cargar_video('M00FtbeO-gg', 2);
-      console.log(this);
       return false;
     }
 
@@ -68,16 +79,21 @@ function onYouTubePlayerReady(playerId){
     }
     </script>
   </head>
-  <body>
-     <div id="ytapiplayer1">
-           You need Flash player 8+ and JavaScript enabled to view this video.
+  <body onload="iniciar_players();">
+    <center><h1>Youtube Mixer Wild Edition</h1></center>
+    <div id="players" style="width: 100%; margin: auto;">
+      <div id='inner' style="width: 860px; margin: auto;">
+      <div id="ytapiplayer1">
+        You need Flash player 8+ and JavaScript enabled to view this video.
+      </div>
+      <div id="ytapiplayer2">
+        You need Flash player 8+ and JavaScript enabled to view this video.
+      </div>
     </div>
-     <div id="ytapiplayer2">
-           You need Flash player 8+ and JavaScript enabled to view this video.
-         </div>
+    </div>
     <br/>
-      <input id="slider" type="range" onchange="slider_change()"/>
-    <marquee>En desarrollo</marquee>
+    <center><input id="slider" type="range" onchange="slider_change()"/></center>
+    <br/>
     <input id='search' type='text'/>
     <input type='button' value='buscar' onclick="buscar();"/>
     <ul id='listita'>

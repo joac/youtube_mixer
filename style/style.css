@@ -18,6 +18,14 @@ center.top {
 	
 }
 
+/*=======================
+++++ PLAYER
+=======================*/
+
+#player {
+	padding-bottom: 10px;
+	border-bottom: #d0cece;
+}
 
 /*=======================
 ++++ TEXTOS

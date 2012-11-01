@@ -14,14 +14,26 @@ function buscar_en_youtube(texto){
         var entry = entries[i];
         var title = (entry.title.type == 'html') ? entry.title.$t : entry.title.$t;
         var id = obtener_id(entry.id.$t);
+        var li_class = 'even';
+        if (i % 2) {
+            li_class = 'odd';
+        }
+        
         $('#listita').append(
-          '<li>'
-          +'<img src="' + entry.media$group.media$thumbnail[1].url + '"/>'
-          +'<input type="button" value="cargar en A" onclick="ytplayer1.loadVideoById(\''+ id +'\');">'
-          +'<input type="button" value="cargar en B" onclick="ytplayer2.loadVideoById(\''+ id +'\');">'
-          +'<a href="'+ entry.link[0].href + '">' + title + '</a>'
-          +'</li>'
-
+          '<li class="' + li_class  +'">'
+          + '<div class="thumbnail">'
+          + '<img src="' + entry.media$group.media$thumbnail[1].url + '"/>'
+          + '</div>'
+          + '<div class="a_queue">'
+          + '<input type="button" value="cargar en A" onclick="ytplayer1.loadVideoById(\''+ id +'\');">'
+          + '</div>'
+          + '<div class="b_queue">'
+          + '<input type="button" value="cargar en B" onclick="ytplayer2.loadVideoById(\''+ id +'\');">'
+          + '</div>'
+          + '<div class="link">'
+          + '<a href="'+ entry.link[0].href + '">' + title + '</a>'
+          + '</div>'
+          + '</li>'
           );
       }
     },

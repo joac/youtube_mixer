@@ -1,0 +1,94 @@
+body {
+	background: transparent;
+	padding: 30px;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+.logo {
+	margin-bottom: 30px;
+}
+
+
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+}
+
+#players {
+	
+/*	background: url('mons-chico.png') no-repeat transparent;*/
+
+}
+
+center.top {
+	background: url('los-salvajes.png') no-repeat scroll transparent;
+	padding-top: 80px;
+}
+
+input#search {
+	border: 1px solid #ccc;
+	padding: 8px;
+	font-size: 14px;
+}
+
+input#search[type='button'] {
+	background: #23a4d4;
+	border: 1px solid #13b1ec;
+	color: #fff;
+	text-transform: uppercase;
+	-webkit-border-radius: 03px;
+	-moz-border-radius: 03px;
+	border-radius: 03px;
+	padding: 9px;
+	font-size: 12px;
+}
+
+.buscador {
+	margin-top: 20px;
+	
+}
+
+.content {
+	width: 960px;
+	margin: 0px auto;
+}
+
+ul#listita li {
+	list-style-type: none;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ccc;
+}
+
+#listita, #listita a {
+	font-size: 16px;
+	color: #313131;
+	text-decoration: none;
+	
+}
+
+#listita img {
+	margin-right: 10px;
+	border: 4px solid #e0e0e0;
+}
+
+#listita input[type='button'] {
+	background: #f2f3f4;
+	padding: 3px;
+	-webkit-border-radius: 03px;
+	-moz-border-radius: 03px;
+	border-radius: 03px;
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #8f8f8f;
+	margin-right: 15px;
+	border: 1px solid #ececec;
+}
+
+#listita input[type='button']:hover {
+	background: #2fbf91;
+	border: 1px solid #41efb8;
+	color: #fff;
+}

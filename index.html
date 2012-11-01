@@ -5,12 +5,21 @@
     <script type="text/javascript" src="html5slider.js"></script>
     <script type="text/javascript" src="swfobject/swfobject.js"></script>   
     <script type="text/javascript" src="mixer.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
   </head>
-  <body onload="iniciar_players();">
-    <center><h1>Youtube Mixer Wild Edition</h1></center>
+ 
+ <body onload="iniciar_players();">
+
+    <center class="top"><!-- <h1>Youtube Mixer Wild Edition</h1></center> -->
+	<div class="logo"> <img src="style/youtube-mixer-wild-edition.png" alt="YouTube Mixer Wild Edition"> </div>
     <a href="https://github.com/joac/youtube_mixer">
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-    <div id="players" style="width: 100%; margin: auto;">
+    
+
+
+<div id="players" style="width: 100%; margin: auto;">
       <div id='inner' style="width: 860px; margin: auto;">
       <div id="ytapiplayer1">
         You need Flash player 8+ and JavaScript enabled to view this video.
@@ -21,12 +30,15 @@
     </div>
     </div>
     <br/>
-    <center><input id="slider" type="range" onchange="slider_change()"/></center>
+   <input id="slider" type="range" onchange="slider_change()"/>
     <br/>
-    <input id='search' type='text'/>
-    <input type='button' value='buscar' onclick="buscar();"/>
-    <ul id='listita'>
+	<div class="buscador">    
+<input id='search' type='text'/>
+    <input id='search' type='button' value='buscar' onclick="buscar();"/>
+</div>
+	 <div class="content">    
+<ul id='listita'>
     </ul>
-         
+   </div>      
   </body>
 </html>

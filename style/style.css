@@ -1,13 +1,29 @@
 body {
-	background: transparent;
-	padding: 30px;
+	background: #EBEBEB;
+	padding: 0px 30px 30px 30px;
 	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
 }
 
 .logo {
 	margin-bottom: 30px;
+	text-align: left;
+	padding-left: 206px;
 }
 
+
+
+center.top {
+	background: url('los-salvajes.png') no-repeat scroll transparent;
+	
+}
+
+
+/*=======================
+++++ TEXTOS
+=======================*/
+
+/* títulos */
 
 h1 {
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -15,34 +31,37 @@ h1 {
 	font-size: 40px;
 }
 
-#players {
-	
-/*	background: url('mons-chico.png') no-repeat transparent;*/
 
-}
-
-center.top {
-	background: url('los-salvajes.png') no-repeat scroll transparent;
-	padding-top: 80px;
-}
+/*=======================
+++++ BUSCADOR
+=======================*/
 
 input#search {
 	border: 1px solid #ccc;
 	padding: 8px;
 	font-size: 14px;
+	-webkit-border-radius: 03px;
+	-moz-border-radius: 03px;
+	border-radius: 03px;
 }
 
 input#search[type='button'] {
 	background: #23a4d4;
-	border: 1px solid #13b1ec;
+	border: 1px solid #167be3;
 	color: #fff;
 	text-transform: uppercase;
 	-webkit-border-radius: 03px;
 	-moz-border-radius: 03px;
 	border-radius: 03px;
-	padding: 9px;
+	padding: 8px;
 	font-size: 12px;
 }
+
+input#search[type='button']:hover {
+	background: #167be3;
+	border: 1px solid #007eff;
+}
+
 
 .buscador {
 	margin-top: 20px;
@@ -53,6 +72,10 @@ input#search[type='button'] {
 	width: 960px;
 	margin: 0px auto;
 }
+
+/*=========================
+++++ RESULTADOS DE BÚSQUEDA
+=========================*/
 
 ul#listita li {
 	list-style-type: none;

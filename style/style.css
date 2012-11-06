@@ -3,6 +3,17 @@ body {
 	padding: 0px 30px 30px 30px;
 	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	color: #333;
+	font-size: 13px;
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .logo {
@@ -18,13 +29,39 @@ center.top {
 	
 }
 
+
+/*=======================
+++++ FOOTER
+=======================*/
+
+#footer {
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+	text-align: left;
+	height: 73px;
+	margin-top: 30px;
+}
+
+.content-footer {
+	width: 960px;
+	margin: 0px auto;
+}
+
+#footer img {
+	padding-right: 15px;
+	border-right: 1px solid #ccc;
+	margin-right: 15px;
+	float: left;
+}
+
 /*=======================
 ++++ PLAYER
 =======================*/
 
-#player {
+#players {
 	padding-bottom: 10px;
 	border-bottom: #d0cece;
+	height: 360px;
 }
 
 /*=======================
@@ -39,6 +76,11 @@ h1 {
 	font-size: 40px;
 }
 
+/* otros */
+
+.link {
+	margin-bottom: 15px;
+}
 
 /*=======================
 ++++ BUSCADOR
@@ -72,25 +114,49 @@ input#search[type='button']:hover {
 
 
 .buscador {
-	margin-top: 20px;
-	
+	width: 960px;
+	margin: 20px auto 0px auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	background: url('bg-buscador.png') repeat-x scroll transparent;
 }
 
 .content {
 	width: 960px;
 	margin: 0px auto;
+	border-top: 1px solid #fff;
+
 }
 
 /*=========================
 ++++ RESULTADOS DE BÚSQUEDA
 =========================*/
 
+ul#listita {
+	margin-bottom: 10px;
+}
+
 ul#listita li {
 	list-style-type: none;
 	text-align: left;
 	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px dashed #ccc;
+	height: 90px;
+	padding: 10px;
+	
+}
+
+ul#listita li:hover {
+	background: #fff;
+}
+
+.odd {
+	background: #DDDDDD;
+	
+}
+
+.thumbnail img {
+	float: left;
+	margin-right: 10px;
 }
 
 #listita, #listita a {
@@ -100,26 +166,22 @@ ul#listita li {
 	
 }
 
-#listita img {
-	margin-right: 10px;
-	border: 4px solid #e0e0e0;
-}
-
 #listita input[type='button'] {
-	background: #f2f3f4;
+	background: #23A4D4;
 	padding: 3px;
 	-webkit-border-radius: 03px;
 	-moz-border-radius: 03px;
 	border-radius: 03px;
 	text-transform: uppercase;
 	font-size: 10px;
-	color: #8f8f8f;
+	color: #fff;
 	margin-right: 15px;
-	border: 1px solid #ececec;
+	border: 1px solid #167BE3;
+	margin-bottom: 5px;
 }
 
 #listita input[type='button']:hover {
-	background: #2fbf91;
-	border: 1px solid #41efb8;
-	color: #fff;
+	background: #167be3;
+	border: 1px solid #007eff;
+	
 }
